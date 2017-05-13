@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+    <div class="node">
+      <input type="checkbox" checked/>
+      <span class="title">Asia</span>
+      <div class="children">
+        <div class="node">
+          <input type="checkbox" checked/>
+          <span class="title">Israel</span>
+          <div class="children">
+
+            <div class="node">
+              <input type="checkbox" checked/>
+              <span class="title">Tel Aviv</span>
+            </div>
+
+            <div class="node">
+              <input type="checkbox" checked/>
+              <span class="title">Jerusalem</span>
+            </div>
+
+            <div class="node">
+              <input type="checkbox" checked/>
+              <span class="title">Haifa</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="node">
+      <input type="checkbox"/>
+      <span class="title">Europe</span>
+      <div class="children">
+
+        <div class="node">
+          <input type="checkbox"/>
+          <span class="title">Italy</span>
+          <div class="children">
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Rome</span>
+            </div>
+            <div class="node">
+              <input type="checkbox" checked/>
+              <span class="title">Milan</span>
+            </div>
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Napoly</span>
+            </div>
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Venice</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="node">
+          <input type="checkbox"/>
+          <span class="title">UK</span>
+          <div class="children">
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">London</span>
+            </div>
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Edinburgh</span>
+            </div>
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Dublin</span>
+            </div>
+            <div class="node">
+              <input type="checkbox"/>
+              <span class="title">Manchester</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="selections">
+  <span class="selected">
+    Tel Aviv
+    <span class="delete">X</span>
+  </span>
+      <span class="selected">
+    Jerusalem
+    <span class="delete">X</span>
+  </span>
+      <span class="selected">
+    Haifa
+    <span class="delete">X</span>
+  </span>
+      <span class="selected">
+    Milan
+    <span class="delete">X</span>
+  </span>
+
+    </div>
+  </body>
+</html>
