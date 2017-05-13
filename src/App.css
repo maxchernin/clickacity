@@ -1,7 +1,21 @@
 .App {
   text-align: center;
 }
-
+.children {
+  padding-left: 20px;
+}
+.selections {
+  margin-top: 20px;
+}
+.selected {
+  margin: 5px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.delete {
+  cursor: pointer;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
