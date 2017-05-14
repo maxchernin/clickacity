@@ -10,13 +10,19 @@ class App extends Component {
 	constructor(props, context){
 		super(props);
 		this.onClickCity = this.onClickCity.bind(this);
-		// this.state = {
-		// 	nodes: data
-		// }
+		this.handleFilter = this.handleFilter.bind(this);
+		this.state = {
+			originalNodes:data,
+			filteredNodes: data
+		}
 	}
+	handleFilter(event) {
+	// buildQuery();
 
+    this.props.actions.filterNode(event.target.value, this.state);
+	}
 	onClickCity() {
-		this.props.actions.selectNode({"name": 'this is a test of add function with redux'})
+
 	}
 
 	componentDidMount(){
@@ -26,7 +32,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-	      <button onClick={this.onClickCity}>Test</button>
 	      {this.props.nodes.map((node, index) => {
 	      	console.log(node)
 		      return <div key={index}>{node.name}</div>
@@ -35,7 +40,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
-	        <input placeholder="filter" type="text" />
+	        <input placeholder="filter" type="text" onKeyUp={this.handleFilter} />
 	        <div className="node">
 		        <input type="checkbox" checked/>
 		        <span className="title">Asia</span>
@@ -81,6 +86,7 @@ class App extends Component {
 
  */
 function mapStateToProps(state, ownProps) {
+	debugger;
 	return {
 		nodes: state.nodes
 	}
