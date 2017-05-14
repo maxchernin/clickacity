@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
-import data from './data.json';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as placesActions from './actions/actions'
@@ -11,15 +10,10 @@ class App extends Component {
 		super(props);
 		this.onClickCity = this.onClickCity.bind(this);
 		this.handleFilter = this.handleFilter.bind(this);
-		this.state = {
-			originalNodes:data,
-			filteredNodes: data
-		}
+		this.state = _.cloneDeep(this.props.state);
 	}
 	handleFilter(event) {
-	// buildQuery();
-
-    this.props.actions.filterNode(event.target.value, this.state);
+		this.props.actions.filterNode(event.target.value, this.state);
 	}
 	onClickCity() {
 
@@ -32,15 +26,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-	      {this.props.nodes.map((node, index) => {
-	      	console.log(node)
-		      return <div key={index}>{node.name}</div>
-	      })}
+
         <div className="App-header">
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
 	        <input placeholder="filter" type="text" onKeyUp={this.handleFilter} />
+
+          <br/>below is mock
 	        <div className="node">
 		        <input type="checkbox" checked/>
 		        <span className="title">Asia</span>
@@ -68,9 +61,10 @@ class App extends Component {
 				        </div>
 			        </div>
 		        </div>
-	        </div>
         </div>
+
       </div>
+			</div>
     );
   }
 }
@@ -86,9 +80,8 @@ class App extends Component {
 
  */
 function mapStateToProps(state, ownProps) {
-	debugger;
 	return {
-		nodes: state.nodes
+		state: state
 	}
 }
 
