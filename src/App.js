@@ -2,17 +2,35 @@ import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
 import data from './data.json';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as placesActions from './actions/actions'
 
 class App extends Component {
-	componentDidMount(){
+	constructor(props, context){
+		super(props);
+		this.onClickCity = this.onClickCity.bind(this);
+		// this.state = {
+		// 	nodes: data
+		// }
+	}
 
+	onClickCity() {
+		this.props.actions.selectNode({"name": 'this is a test of add function with redux'})
+	}
+
+	componentDidMount(){
     }
 
 
   render() {
-
     return (
       <div className="App">
+	      <button onClick={this.onClickCity}>Test</button>
+	      {this.props.nodes.map((node, index) => {
+	      	console.log(node)
+		      return <div key={index}>{node.name}</div>
+	      })}
         <div className="App-header">
           <h2>Welcome to React</h2>
         </div>
@@ -62,5 +80,16 @@ class App extends Component {
  6. Implement selection list + 'x' to remove from selection
 
  */
+function mapStateToProps(state, ownProps) {
+	return {
+		nodes: state.nodes
+	}
+}
 
-export default App;
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(placesActions , dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
